@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<br>
+<div class="container">
+    <div class="row">
+        {% for i in album_list %}
+        <div class="col-md-3">
+            <div class="card" style="width: 16rem;">
+  <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" width="200" height="200">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.year}}</p>
+    <a href="{% url 'musicbytes:albumdetails' i.id %}" class="btn btn-primary">Details</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
